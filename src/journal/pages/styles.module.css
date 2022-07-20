@@ -1,0 +1,60 @@
+.container {
+  background-color: #3f3351;
+  height: 100vh;
+  color: #e9a6a6;
+}
+
+.container h1 {
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  padding-top: 30px;
+  border-bottom: 0.5px solid #e9a6a61f;
+  padding: 10px;
+}
+
+.randomWord {
+  display: flex;
+  justify-content: center;
+  width: 99%;
+
+}
+
+.card {
+  position: relative;
+  top: 5rem;
+  border: 1px solid #e9a6a6;
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 5px 10px 10px 0px rgba(0, 0, 0, 0.16);
+  background-color: #e9a6a61f;
+}
+
+.containerCard{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card p {
+  font-size: 1rem;
+}
+
+.button {
+  background-color: #e9a6a6;
+  border: none;
+  color: rgba(255, 255, 255, 0.579);
+  padding: 15px 30px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 15px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.containerBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
