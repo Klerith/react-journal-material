@@ -1,10 +1,17 @@
-import { Grid, Typography, useTheme } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import { AutoStories } from "@mui/icons-material";
+import { useNavigate } from "react-router-dom";
+import styles from "../pages/styles.module.css";
 
 export const NothingSelectedView = () => {
+  let navigate = useNavigate();
+
+  const goToHome = () => {
+    navigate("/");
+  };
+
   return (
     <Grid
-      className="animate__animated animate__fadeIn animate__faster"
       container
       direction="column"
       alignItems="center"
@@ -22,6 +29,20 @@ export const NothingSelectedView = () => {
           Seleccioná o creá una palabra.
         </Typography>
       </Grid>
+      <Grid
+        item
+        xs={12}
+        sx={{
+          marginTop: "1rem",
+        }}
+      ></Grid>
+      <div style={{
+        paddingTop: "1rem",
+      }}>
+        <button className={styles.button} onClick={goToHome}>
+          Volver a la pantalla principal.
+        </button>
+      </div>
     </Grid>
   );
 };

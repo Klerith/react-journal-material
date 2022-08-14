@@ -1,6 +1,6 @@
 import { collection, deleteDoc, doc, setDoc } from "firebase/firestore/lite";
 import { FirebaseDB } from "../../firebase/config";
-import { addNewEmptyNote, setActiveNote } from "./";
+import { setActiveNote } from "./";
 import {
   deleteNoteById,
   savingNewNote,
@@ -13,9 +13,7 @@ import { loadNotes } from "../../helpers";
 export const startNewNote = () => {
   return async (dispatch, getState) => {
     dispatch(savingNewNote());
-
     const { uid } = getState().auth;
-
     const newWord = {
       title: "",
       body: "",
@@ -27,7 +25,6 @@ export const startNewNote = () => {
     newWord.id = newDoc.id;
 
     //! dispatch
-    dispatch(addNewEmptyNote(newWord));
     dispatch(setActiveNote(newWord));
   };
 };

@@ -41,20 +41,22 @@
 }
 
 .button {
-  background-color: #e9a6a6;
-  border: none;
-  color: rgba(255, 255, 255, 0.579);
-  padding: 15px 30px;
+  border: 1px solid #e9a6a6;
+  color: #e9a6a6;
+  font-weight: bold;
+  padding: 10px 30px;
   text-align: center;
   text-decoration: none;
   font-size: 15px;
   cursor: pointer;
   border-radius: 10px;
+  background: none
 }
 
 .containerBtn {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px;
+    padding-top: 50px;
 }
+

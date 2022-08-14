@@ -4,11 +4,9 @@ export const AuthLayout = ({ children, title = "" }) => {
   return (
     <Grid
       container
-      spacing={0}
       direction="column"
       alignItems="center"
-      justifyContent="center"
-      sx={{ minHeight: "100vh", backgroundColor: "primary.main", padding: 4 }}
+      sx={{ minHeight: "100vh", backgroundColor: "primary.main", paddingTop: "12rem" }}
     >
       <Grid
         item
@@ -16,12 +14,13 @@ export const AuthLayout = ({ children, title = "" }) => {
         xs={3}
         sx={{
           width: { sm: 450 },
-          backgroundColor: "white",
-          padding: 3,
+          height: "100%",
+          padding: 5,
           borderRadius: 2,
+          border: "1px solid #4285F4",
         }}
       >
-        <Typography variant="h5" sx={{ mb: 1 }}>
+        <Typography variant="h5" sx={{ mb: 1, color: 'white' }}>
           {title}
         </Typography>
 

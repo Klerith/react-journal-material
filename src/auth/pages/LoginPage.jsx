@@ -33,29 +33,27 @@ export const LoginPage = () => {
   };
 
   const onGoogleSignIn = () => {
-    // console.log('onGoogleSignIn');
     dispatch(startGoogleSignIn());
   };
 
   return (
     <AuthLayout title="Ingresar con Google">
-      <form
-        aria-label="submit-form"
-        onSubmit={onSubmit}
-        className="animate__animated animate__fadeIn animate__faster"
-      >
-        <Grid item xs={12} sm={6}>
-          <Button
-            disabled={isAuthenticating}
-            variant="contained"
-            aria-label="google-btn"
-            onClick={onGoogleSignIn}
-          >
-            <Google />
-            <Typography sx={{ ml: 1 }}>Google</Typography>
-          </Button>
-        </Grid>
-      </form>
+      <Grid item xs={12} sm={6}>
+        <Button
+          sx={{
+            width: "100%",
+            backgroundColor: "#4285F4",
+            boxShadow: "none",
+            color: "white",
+          }}
+          disabled={isAuthenticating}
+          variant="contained"
+          aria-label="google-btn"
+          onClick={onGoogleSignIn}
+        >
+          <Google />
+        </Button>
+      </Grid>
     </AuthLayout>
   );
 };

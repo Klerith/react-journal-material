@@ -1,25 +1,28 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
-import { DeleteOutline, SaveOutlined } from "@mui/icons-material";
+import { DeleteOutline, SaveOutlined, ArrowBack } from "@mui/icons-material";
 import { Button, Grid, TextField } from "@mui/material";
 import Swal from "sweetalert2";
 import "sweetalert2/dist/sweetalert2.css";
+import styles from "../components/styles.module.css";
 
 import { useForm } from "../../hooks/useForm";
 import {
   setActiveNote,
   startDeletingNote,
   startSaveNote,
-
 } from "../../store/journal";
 
-import { startNewNote } from '../../store/journal/thunks';
+import { startNewNote } from "../../store/journal/thunks";
 
 export const NoteView = () => {
+  const navigate = useNavigate();
 
-  const [isSaved, setIsSaved] = useState(false);
-
+  const goToHome = () => {
+    navigate("/home");
+  };
 
   const dispatch = useDispatch();
   const {
@@ -43,7 +46,6 @@ export const NoteView = () => {
   const onSaveNote = () => {
     dispatch(startSaveNote());
     dispatch(startNewNote());
-  
   };
 
   const onDelete = () => {
@@ -51,8 +53,8 @@ export const NoteView = () => {
   };
 
   useEffect(() => {
-    onResetForm()
-  }, [onSaveNote])
+    onResetForm();
+  }, [onSaveNote]);
 
   return (
     <Grid
@@ -61,12 +63,16 @@ export const NoteView = () => {
         backgroundColor: "#3F3351",
       }}
     >
+      <div className={styles.arrowBack}>
+        <ArrowBack onClick={goToHome} />
+      </div>
       <Grid container>
         <TextField
           fullWidth={true}
           type="text"
+          isRequired={true}
           variant="filled"
-          placeholder="Nombre de la palabra"
+          placeholder="Nombre de la palabra *"
           sx={{ border: "none", mb: 1 }}
           name="title"
           value={title}
@@ -81,9 +87,10 @@ export const NoteView = () => {
         <TextField
           fullWidth={true}
           type="text"
+          isRequired={true}
           variant="filled"
           multiline
-          placeholder="Descripción de la palabra"
+          placeholder="Descripción de la palabra *"
           minRows={5}
           name="body"
           value={body}

@@ -1,0 +1,64 @@
+.randomWord {
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    margin: 0 auto;
+    padding-top: 30px;
+}
+
+.randomWord h2 {
+    font-size: 15px;
+    text-decoration: underline;
+    color: #e9a6a6;
+    text-decoration-color: rgba(255, 255, 255, 0.082);
+
+}
+.card {
+    background-color: #e9a6a61f;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    width: 300px; 
+    height: auto;
+    padding: 30px;
+    margin: 0 auto;
+}
+
+.card p {
+    font-size: 15px;
+    color: rgb(208, 208, 208);
+}
+
+.noWords {
+    text-align: center;
+    margin: 0 auto;
+    padding: 30px;
+    width: 300px;
+    border: 1px solid #e9a6a61f;
+    border-radius: 10px;
+    margin-top: 100px;
+
+}
+
+.newWord {
+    margin: 0 auto;
+    padding: 1em 0;
+    margin-top: 30px;
+}
+
+.button {
+    background-color: #e9a6a61f;
+    border: none;
+    color: #e9a6a6;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.arrowBack{
+    color: #e9a6a6;
+}

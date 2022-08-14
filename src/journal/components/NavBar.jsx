@@ -16,6 +16,10 @@ import { startLogout } from "../../store/auth";
 import { SideBarItem } from "./SideBarItem";
 
 export const NavBar = ({ drawerWidth = 240 }) => {
+
+  const [searchTerm, setSearchTerm] = useState("")
+
+
   const dispatch = useDispatch();
 
   const onLogout = () => {
@@ -26,21 +30,14 @@ export const NavBar = ({ drawerWidth = 240 }) => {
 
   const { notes } = useSelector((state) => state.journal);
 
-  let filterEmptyNotes = notes.filter((note) => note.body.length > 0); 
+  let filterEmptyNotes = notes.filter((note) => note.body.length > 0);
   const notesCount = filterEmptyNotes.length;
 
-  function SortArray(a, b){
+  function SortArray(a, b) {
     return a.title.localeCompare(b.title);
-  } 
+  }
 
   const sortedNotes = filterEmptyNotes.sort(SortArray);
-  
-  // function GetRandomWord (array) {
-  //   return array[Math.floor(Math.random() * array.length)];
-  // }
-
-  // const randomWord = GetRandomWord(sortedNotes);
-  // console.log(randomWord);
 
 
   return (
@@ -65,8 +62,7 @@ export const NavBar = ({ drawerWidth = 240 }) => {
               <MenuOutlined />
             </IconButton>
             <Typography variant="h6" noWrap component="div" color="#E9A6A6">
-              {" "}
-              Diccionario App{" "}
+              Banco de palabras
             </Typography>
             <IconButton color="error" onClick={onLogout}>
               <LogoutOutlined />
@@ -74,10 +70,7 @@ export const NavBar = ({ drawerWidth = 240 }) => {
           </Grid>
         </Toolbar>
       </AppBar>
-      <Box
-        component="nav"
-        height="100vh"
-      >
+      <Box component="nav" height="100vh">
         <Drawer
           variant="temporary"
           open={isDrawerOpen}
@@ -88,6 +81,7 @@ export const NavBar = ({ drawerWidth = 240 }) => {
               width: drawerWidth,
               backgroundColor: "#3F3351",
             },
+          
           }}
           onClose={() => setIsDrawerOpen(false)}
         >
