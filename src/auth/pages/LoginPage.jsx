@@ -49,7 +49,7 @@ export const LoginPage = () => {
           disabled={isAuthenticating}
           variant="contained"
           aria-label="google-btn"
-          onClick={onGoogleSignIn}
+          onClick={onGoogleSignIn}  
         >
           <Google />
         </Button>
