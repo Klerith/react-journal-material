@@ -25,7 +25,7 @@ export const RandomWord = () => {
 
   useEffect(() => {
     getRandomWord();
-  }, [notes]);
+  }, []);
 
   return (
     <div>

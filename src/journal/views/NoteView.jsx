@@ -105,7 +105,7 @@ export const NoteView = () => {
       </Grid>
 
       <Grid container justifyContent="space-between">
-        <Button disabled={isSaving} onClick={onSaveNote} color="primary">
+        <Button disabled={false} onClick={onSaveNote} color="primary">
           <SaveOutlined sx={{ color: "#E9A6A6" }} />
         </Button>
         <Button onClick={onDelete} color="error">

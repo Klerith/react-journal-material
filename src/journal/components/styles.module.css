@@ -1,5 +1,4 @@
 .randomWord {
-    font-size: 15px;
     font-weight: bold;
     text-align: center;
     margin: 0 auto;
@@ -17,15 +16,23 @@
     background-color: #e9a6a61f;
     border-radius: 15px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    width: 300px; 
-    height: auto;
+    width: 30%; 
     padding: 30px;
+    height: auto;
     margin: 0 auto;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
 }
 
 .card p {
-    font-size: 15px;
+    padding-top: 5px;
+    font-size: 20px;
     color: rgb(208, 208, 208);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .noWords {

@@ -16,9 +16,18 @@ import { startLogout } from "../../store/auth";
 import { SideBarItem } from "./SideBarItem";
 
 export const NavBar = ({ drawerWidth = 240 }) => {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [result, setResult] = useState([]);
+  const { notes } = useSelector((state) => state.journal);
 
-  const [searchTerm, setSearchTerm] = useState("")
-
+  const searchNotesByTitle = (event) => {
+    setSearchTerm(event.target.value);
+    if (searchTerm.length > 0) {
+      let result = notes.filter((note) => note.title.includes(searchTerm));
+      setResult(result);
+      return result;
+    }
+  };
 
   const dispatch = useDispatch();
 
@@ -28,8 +37,6 @@ export const NavBar = ({ drawerWidth = 240 }) => {
 
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
-  const { notes } = useSelector((state) => state.journal);
-
   let filterEmptyNotes = notes.filter((note) => note.body.length > 0);
   const notesCount = filterEmptyNotes.length;
 
@@ -38,7 +45,6 @@ export const NavBar = ({ drawerWidth = 240 }) => {
   }
 
   const sortedNotes = filterEmptyNotes.sort(SortArray);
-
 
   return (
     <React.Fragment>
@@ -61,9 +67,16 @@ export const NavBar = ({ drawerWidth = 240 }) => {
             >
               <MenuOutlined />
             </IconButton>
-            <Typography variant="h6" noWrap component="div" color="#E9A6A6">
-              Banco de palabras
-            </Typography>
+            <input
+              type="text"
+              placeholder="Buscar"
+              onChange={(event) => searchNotesByTitle(event)}
+            />
+            {searchTerm.length > 0 ? (
+              result?.map((r) => <Typography key={r.id}>{r.title}</Typography>)
+            ) : (
+              <Typography>No hay resultados</Typography>
+            )}
             <IconButton color="error" onClick={onLogout}>
               <LogoutOutlined />
             </IconButton>
@@ -81,7 +94,6 @@ export const NavBar = ({ drawerWidth = 240 }) => {
               width: drawerWidth,
               backgroundColor: "#3F3351",
             },
-          
           }}
           onClose={() => setIsDrawerOpen(false)}
         >
