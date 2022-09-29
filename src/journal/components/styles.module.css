@@ -1,8 +1,20 @@
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #3f3351;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #e9a6a6;
+}
+
 .randomWord {
   font-weight: bold;
   text-align: center;
-  display: flex;
-  justify-content: center;
 }
 
 .randomWord h2 {
@@ -15,9 +27,9 @@
   background-color: #e9a6a61f;
   border-radius: 15px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  padding: 30px;
+  padding: 50px;
   height: auto;
-  width: 300px;
+  width: 80%;
   margin: 0 auto;
   text-align: center;
   align-items: center;

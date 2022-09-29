@@ -20,12 +20,12 @@ export const DictionaryScreen = () => {
       >
         Aprendé de tus palabras.
       </h1>
-      <RandomWord />
       <div className={styles.containerBtn}>
         <button className={styles.button} onClick={goToDashboard}>
           Ir al banco de palabras
         </button>
       </div>
+      <RandomWord />
     </div>
   );
 };

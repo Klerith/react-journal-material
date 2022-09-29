@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
-import styles from "./styles.module.css";
+import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import styles from './styles.module.css';
 export const RandomWord = () => {
   const { notes } = useSelector((state) => state.journal);
 
-  const [word, setWord] = useState("");
+  const [word, setWord] = useState('');
 
-  let filterEmptyNotes = notes.filter((note) => note.title !== "");
-  let filterEmptyTitles = filterEmptyNotes.filter((note) => note.body !== "");
+  let filterEmptyNotes = notes.filter((note) => note.title !== '');
+  let filterEmptyTitles = filterEmptyNotes.filter((note) => note.body !== '');
   let filterRepeatedTitles = filterEmptyTitles.filter((note, index) => {
     return filterEmptyTitles.findIndex((t) => t.title === note.title) === index;
   });
@@ -28,17 +28,21 @@ export const RandomWord = () => {
   }, []);
 
   return (
-    <div>
+    <div
+      style={{
+        height: '100vh',
+      }}
+    >
       {notes.length > 0 ? (
         <div className={styles.randomWord}>
-          <div className={styles.card}>
-            <h2>{word?.title}:</h2>
-            <p>{word?.body}</p>
-          </div>
           <div className={styles.newWord}>
             <button className={styles.button} onClick={getRandomWord}>
               Nueva palabra
             </button>
+          </div>
+          <div className={styles.card}>
+            <h2>{word?.title}:</h2>
+            <p>{word?.body}</p>
           </div>
         </div>
       ) : (

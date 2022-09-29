@@ -113,7 +113,7 @@ export const NavBar = ({ drawerWidth = 240 }) => {
               backgroundColor: 'primary.main',
             }}
           >
-            {sortedNotes.map((note) => (
+            {notes.map((note) => (
               <SideBarItem key={note.id} {...note} />
             ))}
           </List>

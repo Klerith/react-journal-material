@@ -1,11 +1,12 @@
 .container {
   background-color: #3f3351;
-  height: 100vh;
   color: #e9a6a6;
+  width: 100%;
+  height: 100%;
 }
 
 .container h1 {
-  font-size: 1.5rem;
+  font-size: 1rem;
   display: flex;
   justify-content: center;
   padding-top: 30px;
@@ -14,15 +15,10 @@
 }
 
 .randomWord {
-  display: flex;
-  justify-content: center;
-  width: 99%;
-
+  display: block;
 }
 
 .card {
-  position: relative;
-  top: 5rem;
   border: 1px solid #e9a6a6;
   border-radius: 10px;
   padding: 25px;
@@ -30,14 +26,14 @@
   background-color: #e9a6a61f;
 }
 
-.containerCard{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.containerCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .card p {
-  font-size: 1rem;
+  font-size: 0.5rem;
 }
 
 .button {
@@ -50,13 +46,12 @@
   font-size: 15px;
   cursor: pointer;
   border-radius: 10px;
-  background: none
+  background: none;
 }
 
 .containerBtn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 50px;
 }
-
