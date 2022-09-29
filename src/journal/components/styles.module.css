@@ -1,71 +1,110 @@
 .randomWord {
-    font-weight: bold;
-    text-align: center;
-    margin: 0 auto;
-    padding-top: 30px;
+  font-weight: bold;
+  text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
 .randomWord h2 {
-    font-size: 15px;
-    text-decoration: underline;
-    color: #e9a6a6;
-    text-decoration-color: rgba(255, 255, 255, 0.082);
-
+  font-size: 15px;
+  text-decoration: underline;
+  color: #e9a6a6;
+  text-decoration-color: rgba(255, 255, 255, 0.082);
 }
 .card {
-    background-color: #e9a6a61f;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    width: 30%; 
-    padding: 30px;
-    height: auto;
-    margin: 0 auto;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    margin-top: 50px;
+  background-color: #e9a6a61f;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 30px;
+  height: auto;
+  width: 300px;
+  margin: 0 auto;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
 }
 
 .card p {
-    padding-top: 5px;
-    font-size: 20px;
-    color: rgb(208, 208, 208);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  padding-top: 5px;
+  font-size: 20px;
+  color: rgb(208, 208, 208);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .noWords {
-    text-align: center;
-    margin: 0 auto;
-    padding: 30px;
-    width: 300px;
-    border: 1px solid #e9a6a61f;
-    border-radius: 10px;
-    margin-top: 100px;
-
+  text-align: center;
+  margin: 0 auto;
+  padding: 30px;
+  width: 300px;
+  border: 1px solid #e9a6a61f;
+  border-radius: 10px;
+  margin-top: 100px;
 }
 
 .newWord {
-    margin: 0 auto;
-    padding: 1em 0;
-    margin-top: 30px;
+  margin: 0 auto;
+  padding: 1em 0;
+  margin-top: 30px;
 }
 
 .button {
-    background-color: #e9a6a61f;
-    border: none;
-    color: #e9a6a6;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 10px;
+  background-color: #e9a6a61f;
+  border: none;
+  color: #e9a6a6;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 10px;
 }
 
-.arrowBack{
-    color: #e9a6a6;
+.arrowBack {
+  color: #e9a6a6;
+  cursor: pointer;
+  margin: 10px;
+}
+
+.searchInput {
+  box-sizing: border-box;
+  border: none;
+  background-color: #e9a6a61f;
+  color: #e9a6a6;
+  font-size: 15px;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.containerResult {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.containerSearchbar {
+  background: #e9a6a61f;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  top: 10px;
+}
+
+.containerInputAndResult {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 10px;
+  position: absolute;
+  justify-content: center;
+  left: 45%;
 }

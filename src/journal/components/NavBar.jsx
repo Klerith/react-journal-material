@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   AppBar,
   Box,
@@ -10,13 +10,14 @@ import {
   List,
   Toolbar,
   Typography,
-} from "@mui/material";
-import { LogoutOutlined, MenuOutlined } from "@mui/icons-material";
-import { startLogout } from "../../store/auth";
-import { SideBarItem } from "./SideBarItem";
+} from '@mui/material';
+import styles from './styles.module.css';
+import { LogoutOutlined, MenuOutlined } from '@mui/icons-material';
+import { startLogout } from '../../store/auth';
+import { SideBarItem } from './SideBarItem';
 
 export const NavBar = ({ drawerWidth = 240 }) => {
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState('');
   const [result, setResult] = useState([]);
   const { notes } = useSelector((state) => state.journal);
 
@@ -51,7 +52,7 @@ export const NavBar = ({ drawerWidth = 240 }) => {
       <AppBar
         position="fixed"
         sx={{
-          boxShadow: "0px 0px 1px 0px black",
+          boxShadow: '0px 0px 1px 0px black',
         }}
       >
         <Toolbar>
@@ -62,21 +63,11 @@ export const NavBar = ({ drawerWidth = 240 }) => {
             alignItems="center"
           >
             <IconButton
-              sx={{ color: "#E9A6A6" }}
+              sx={{ color: '#E9A6A6' }}
               onClick={() => setIsDrawerOpen(true)}
             >
               <MenuOutlined />
             </IconButton>
-            <input
-              type="text"
-              placeholder="Buscar"
-              onChange={(event) => searchNotesByTitle(event)}
-            />
-            {searchTerm.length > 0 ? (
-              result?.map((r) => <Typography key={r.id}>{r.title}</Typography>)
-            ) : (
-              <Typography>No hay resultados</Typography>
-            )}
             <IconButton color="error" onClick={onLogout}>
               <LogoutOutlined />
             </IconButton>
@@ -88,18 +79,19 @@ export const NavBar = ({ drawerWidth = 240 }) => {
           variant="temporary"
           open={isDrawerOpen}
           sx={{
-            display: { xs: "block" },
-            "& .MuiDrawer-paper": {
-              boxSizing: "content-box",
+            display: { xs: 'block' },
+            '& .MuiDrawer-paper': {
+              boxSizing: 'content-box',
               width: drawerWidth,
-              backgroundColor: "#3F3351",
+              backgroundColor: '#3F3351',
+              scrollbarColor: 'red',
             },
           }}
           onClose={() => setIsDrawerOpen(false)}
         >
           <Toolbar
             sx={{
-              backgroundColor: "primary.main",
+              backgroundColor: 'primary.main',
             }}
           >
             <Typography
@@ -107,7 +99,7 @@ export const NavBar = ({ drawerWidth = 240 }) => {
               noWrap
               component="div"
               sx={{
-                color: "#E9A6A6",
+                color: '#E9A6A6',
               }}
             >
               {notesCount} palabras.
@@ -118,7 +110,7 @@ export const NavBar = ({ drawerWidth = 240 }) => {
           <List
             onClick={() => setIsDrawerOpen(false)}
             sx={{
-              backgroundColor: "primary.main",
+              backgroundColor: 'primary.main',
             }}
           >
             {sortedNotes.map((note) => (
