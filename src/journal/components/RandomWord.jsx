@@ -30,10 +30,13 @@ export const RandomWord = () => {
   return (
     <div
       style={{
+        display: 'flex',
+        flexDirection: 'column',
+        width: '100%',
         height: '100vh',
       }}
     >
-      {notes.length > 0 ? (
+      {notes?.length > 0 ? (
         <div className={styles.randomWord}>
           <div className={styles.newWord}>
             <button className={styles.button} onClick={getRandomWord}>
@@ -41,7 +44,7 @@ export const RandomWord = () => {
             </button>
           </div>
           <div className={styles.card}>
-            <h2>{word?.title}:</h2>
+            <h2>{word?.title}</h2>
             <p>{word?.body}</p>
           </div>
         </div>

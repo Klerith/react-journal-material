@@ -15,20 +15,11 @@ import styles from './styles.module.css';
 import { LogoutOutlined, MenuOutlined } from '@mui/icons-material';
 import { startLogout } from '../../store/auth';
 import { SideBarItem } from './SideBarItem';
+import { setActiveNote } from '../../store/journal';
 
 export const NavBar = ({ drawerWidth = 240 }) => {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [result, setResult] = useState([]);
   const { notes } = useSelector((state) => state.journal);
-
-  const searchNotesByTitle = (event) => {
-    setSearchTerm(event.target.value);
-    if (searchTerm.length > 0) {
-      let result = notes.filter((note) => note.title.includes(searchTerm));
-      setResult(result);
-      return result;
-    }
-  };
+  const [result, setResult] = useState([]);
 
   const dispatch = useDispatch();
 
@@ -44,6 +35,22 @@ export const NavBar = ({ drawerWidth = 240 }) => {
   function SortArray(a, b) {
     return a.title.localeCompare(b.title);
   }
+
+  const handleOnChangeInput = (e) => {
+    if (e.target.value !== '') {
+      const filteredNotes = notes.filter((note) => {
+        return note.title.toLowerCase().includes(e.target.value.toLowerCase());
+      });
+      setResult(filteredNotes);
+    } else {
+      setResult([]);
+    }
+  };
+
+  const handleSearch = () => {
+    const result = notes.filter((note) => note.title.includes(searchTerm));
+    setResult(result);
+  };
 
   const sortedNotes = filterEmptyNotes.sort(SortArray);
 
@@ -68,6 +75,7 @@ export const NavBar = ({ drawerWidth = 240 }) => {
             >
               <MenuOutlined />
             </IconButton>
+
             <IconButton color="error" onClick={onLogout}>
               <LogoutOutlined />
             </IconButton>
@@ -89,6 +97,13 @@ export const NavBar = ({ drawerWidth = 240 }) => {
           }}
           onClose={() => setIsDrawerOpen(false)}
         >
+          <input
+            type="text"
+            className={styles.search}
+            placeholder="Buscar palabra por título"
+            autofocus
+            onChange={(e) => handleOnChangeInput(e)}
+          />
           <Toolbar
             sx={{
               backgroundColor: 'primary.main',
@@ -113,9 +128,16 @@ export const NavBar = ({ drawerWidth = 240 }) => {
               backgroundColor: 'primary.main',
             }}
           >
-            {notes.map((note) => (
-              <SideBarItem key={note.id} {...note} />
-            ))}
+            {result.length > 0
+              ? result.map((note) => (
+                  <SideBarItem
+                    key={note.id}
+                    title={note.title}
+                    body={note.body}
+                    id={note.id}
+                  />
+                ))
+              : notes.map((note) => <SideBarItem key={note.id} {...note} />)}
           </List>
         </Drawer>
       </Box>
